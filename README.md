@@ -38,6 +38,13 @@ getHeight(element).then(height => {
 })
 ```
 
+## Installation
+
+```
+yarn add get-height
+```
+
+
 ## API
 
 ```
