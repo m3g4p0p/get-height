@@ -1,14 +1,21 @@
 {
   "name": "get-height",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.1.0",
+  "main": "lib/get-height.js",
   "license": "MIT",
+  "author": {
+    "name": "m3g4p0p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m3g4p0p/get-height.git"
+  },
   "scripts": {
     "build": "webpack --env.production",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
-    "clean-webpack-plugin": "^0.1.19",
     "ts-loader": "^4.5.0",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^7.1.0",

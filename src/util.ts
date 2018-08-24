@@ -14,3 +14,5 @@ export const replaceWith = (oldChild: Node, newChild: Node): Node => {
 
   return oldChild
 }
+
+export const addFloat = (...values: string[]): number => values.reduce((sum, value) => sum + parseFloat(value), 0)

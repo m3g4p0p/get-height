@@ -1,4 +1,3 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const path = require('path')
 
 module.exports = ({ production = false } = {}) => ({
@@ -12,9 +11,6 @@ module.exports = ({ production = false } = {}) => ({
       exclude: /node_modules/
     }]
   },
-  plugins: [
-    new CleanWebpackPlugin(['lib'])
-  ],
   resolve: {
     extensions: ['.ts']
   },
