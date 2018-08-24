@@ -1,0 +1,19 @@
+{
+  "name": "get-height",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --env.production",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "ts-loader": "^4.5.0",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^7.1.0",
+    "typescript": "^3.0.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
