@@ -4,7 +4,7 @@ Get the "potential" height of a hidden DOM element, that is, an element that has
 
 ## Mkay
 
-This can be useful if you want to apply a CSS driven slide-up animation to a previously hidden element, as you can't have a transition from `display: none` to `height: auto` (obviously). For example. It was the motivation for me at any rate...
+This can be useful if you want to apply a CSS driven slide-down animation to a previously hidden element, as you can't have a transition from `display: none` to `height: auto` (obviously). For example. It was the motivation for me at any rate...
 
 ```css
 .hidden {
@@ -51,9 +51,13 @@ yarn add get-height
 getHeight(element: HTMLElement, includeMargins: boolean = true): Promise<number>
 ```
 
-## Why asynchronous?
+## But why asynchronous?
 
 In order to determine the height the element would have on the page, the DOM has to be temporarily rearranged a bit. This is getting scheduled in animation frames to avoid layout thrashing and the performance issues of jQuery's [`outerHeight()`](https://api.jquery.com/outerHeight/) method (also, the element will not be visible at any point).
+
+## Limitations ![danger](https://img.shields.io/badge/-danger-red.svg)
+
+It may not work reliably.
 
 ## License
 
