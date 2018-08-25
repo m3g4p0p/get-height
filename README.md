@@ -48,16 +48,12 @@ yarn add get-height
 ## API
 
 ```
-getHeight(element: HTMLElement): Promise<number>
+getHeight(element: HTMLElement, includeMargins: boolean = true): Promise<number>
 ```
 
 ## Why asynchronous?
 
-In order to determine the height the element would have on the page, the DOM has to be temporarily rearranged a bit. This is getting scheduled in animation frames to avoid layout thrashing or worse.
-
-## But does it include the margins?
-
-Yes.
+In order to determine the height the element would have on the page, the DOM has to be temporarily rearranged a bit. This is getting scheduled in animation frames to avoid layout thrashing and the performance issues of jQuery's [`outerHeight()`](https://api.jquery.com/outerHeight/) method (also, the element will not be visible at any point).
 
 ## License
 

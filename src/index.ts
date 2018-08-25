@@ -1,6 +1,6 @@
 import { nextFrame, replaceWith, addFloat } from './util'
 
-export const getHeight = (element: HTMLElement): Promise<number> => {
+export const getHeight = (element: HTMLElement, includeMargins: boolean = true): Promise<number> => {
   const wrapper = document.createElement('div')
   const { hidden, style: { display } } = element
 
@@ -22,6 +22,6 @@ export const getHeight = (element: HTMLElement): Promise<number> => {
     element.hidden = hidden
     replaceWith(wrapper, element)
 
-    return addFloat(height, marginTop, marginBottom)
+    return includeMargins ? addFloat(height, marginTop, marginBottom) : parseFloat(height)
   }))
 }
