@@ -15,4 +15,13 @@ export const replaceWith = (oldChild: Node, newChild: Node): Node => {
   return oldChild
 }
 
-export const addFloat = (...values: string[]): number => values.reduce((sum, value) => sum + parseFloat(value), 0)
+export const isHidden = (element: HTMLElement): boolean =>
+  element.hidden || window.getComputedStyle(element).display === 'none'
+
+export const addFloat = (...values: string[]): number =>
+  values.reduce((sum, value) => sum + parseFloat(value), 0)
+
+export const getHeightWithMargins = (element: HTMLElement): number => {
+  const { height, marginTop, marginBottom } = window.getComputedStyle(element)
+  return addFloat(height, marginTop, marginBottom)
+}

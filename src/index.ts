@@ -1,6 +1,10 @@
-import { nextFrame, replaceWith, addFloat } from './util'
+import { nextFrame, replaceWith, getHeightWithMargins, isHidden } from './util'
 
 export const getHeight = (element: HTMLElement): Promise<number> => {
+  if (!isHidden(element)) {
+    return Promise.resolve(getHeightWithMargins(element))
+  }
+
   const wrapper = document.createElement('div')
   const { hidden, style: { display } } = element
 
@@ -16,12 +20,12 @@ export const getHeight = (element: HTMLElement): Promise<number> => {
     element.style.display = 'block'
     element.hidden = false
   }).then(() => nextFrame(() => {
-    const { height, marginTop, marginBottom } = window.getComputedStyle(element)
+    const height = getHeightWithMargins(element)
 
     element.style.display = display
     element.hidden = hidden
     replaceWith(wrapper, element)
 
-    return addFloat(height, marginTop, marginBottom)
+    return height
   }))
 }
